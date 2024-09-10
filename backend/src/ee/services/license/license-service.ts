@@ -128,7 +128,7 @@ export const licenseServiceFactory = ({
           return;
         }
       }
-
+      instanceType = InstanceType.EnterpriseOnPremOffline;
       // this means this is self hosted oss version
       // else it would reach catch statement
       isValidLicense = true;
