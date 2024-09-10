@@ -16,6 +16,9 @@ services:
   backend:
     container_name: infisical-backend
     restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile.standalone-infisical
     depends_on:
       db:
         condition: service_healthy
@@ -23,11 +26,11 @@ services:
         condition: service_started
       db-migration:
         condition: service_completed_successfully
-    image: infisical/infisical:latest-postgres
+    image: ghcr.io/walzen-group/infisical:latest-postgres
     pull_policy: always
     env_file: .env
     ports:
-      - 80:8080
+      - 10000:8080
     environment:
       - NODE_ENV=production
     networks:

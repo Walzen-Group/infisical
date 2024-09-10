@@ -139,4 +139,6 @@ EXPOSE 443
 
 USER non-root-user
 
+COPY ./standalone-entrypoint.sh standalone-entrypoint.sh
+
 CMD ["./standalone-entrypoint.sh"]
